@@ -11,5 +11,8 @@
     "url": "FirstWeb"
   },
   "author": "Stefan Louis Duran",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
