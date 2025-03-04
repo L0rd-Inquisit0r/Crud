@@ -7,12 +7,20 @@ const PORT = process.env.PORT || 3000;
 const users = [
     {id: 1, username: "johndoe", displayName: "John"},
     {id: 2, username: "janedoe", displayName: "Jane"},
+    {id: 3, username: "alice", displayName: "Alice"},
+    {id: 4, username: "bobby", displayName: "Bob"},
 ];
 
 const items = [
-    {id: 1, name: "milk", quantity: "2", price: "50.00"},
-    {id: 2, name: "bread", quantity: "3", price: "30.00"},
+    {id: 1, name: "litre-of-milk", quantity: "2", unit_price: "40.00"},
+    {id: 2, name: "loaf-of-bread", quantity: "1", unit_price: "30.00"},
+    {id: 3, name: "carton-of-eggs", quantity: "2", unit_price: "50.00"},
+    {id: 4, name: "apples", quantity: "4", unit_price: "20.00"},
 ];
+
+app.listen(PORT, () => {
+    console.log(`Running on Port ${PORT}`);
+});
 
 app.get("/", (req, res) => {
     res.status(201).send({msg: "Welcome to my portfolio!"});
@@ -52,8 +60,4 @@ app.get('/api/items/:id', (req, res) => {
         return res.status(404).send({msg: "Item Not Found"});
     
     return res.send(findItem);
-});
-
-app.listen(PORT, () => {
-    console.log(`Running on Port ${PORT}`);
 });
