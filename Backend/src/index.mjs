@@ -27,7 +27,15 @@ app.get("/", (req, res) => {
 });
 
 app.get('/api/users', (req, res) => {
-    res.send(users);
+    console.log(req.query);
+    const {
+        query: {filter, val}
+    } = req;
+    if(filter && val) 
+        return res.send(
+            users.filter((user) => user[filter].includes(val))
+        );
+    return res.send(users);
 });
 
 app.get('/api/users/:id', (req, res) => {
