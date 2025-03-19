@@ -67,6 +67,27 @@ app.get('/api/items', (req, res) => {
     res.send(items);
 });
 
+app.get('/api/items', (req, res) => {
+    console.log(req.query);
+    const {
+        query: {filter, val}
+    } = req;
+    if(filter && val) 
+        return res.send(
+            items.filter((item) => item[filter].includes(val))
+        );
+    return res.send(items);
+});
+
+app.post('/api/items', (req, res) => {
+    console.log(req.body);
+    const { body } = req;
+    const newItem = {id: items[items.length - 1].id + 1, ...body};
+    items.push(newItem);
+
+    return res.status(201).send(newItem)
+});
+
 app.get('/api/items/:id', (req, res) => {
     console.log(req.params);
     const parsedId = parseInt(req.params.id);
