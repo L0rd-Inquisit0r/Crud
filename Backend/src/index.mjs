@@ -38,6 +38,11 @@ app.get('/api/users', (req, res) => {
     return res.send(users);
 });
 
+app.post('/api/users', (req, res) => {
+    console.log(req.body);
+    return res.sendStatus(200);
+});
+
 app.get('/api/users/:id', (req, res) => {
     console.log(req.params);
     const parsedId = parseInt(req.params.id);
