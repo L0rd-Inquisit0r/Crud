@@ -42,7 +42,11 @@ app.get('/api/users', (req, res) => {
 
 app.post('/api/users', (req, res) => {
     console.log(req.body);
-    return res.sendStatus(200);
+    const { body } = req;
+    const newUser = {id: users[users.length - 1].id + 1, ...body};
+    users.push(newUser);
+
+    return res.status(201).send(newUser)
 });
 
 app.get('/api/users/:id', (req, res) => {
