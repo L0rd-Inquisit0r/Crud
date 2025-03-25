@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 
 const app = express();
 
@@ -63,9 +63,6 @@ app.get('/api/users/:id', (req, res) => {
     return res.send(findUser);
 });
 
-app.get('/api/items', (req, res) => {
-    res.send(items);
-});
 
 app.get('/api/items', (req, res) => {
     console.log(req.query);
