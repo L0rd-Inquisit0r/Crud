@@ -40,6 +40,20 @@ app.get('/api/users', (req, res) => {
     return res.send(users);
 });
 
+app.get('/api/users/:id', (req, res) => {
+    console.log(req.params);
+    const parsedId = parseInt(req.params.id);
+    console.log(parsedId);
+    if(isNaN(parsedId))
+        return res.status(400).send({msg: "Bad Request. Invalid Id."});
+    
+    const findUser = users.find((user) => user.id === parsedId);
+    if(!findUser) 
+        return res.status(404).send({msg: "User Not Found"});
+    
+    return res.send(findUser);
+});
+
 app.post('/api/users', (req, res) => {
     console.log(req.body);
     const { body } = req;
@@ -48,21 +62,6 @@ app.post('/api/users', (req, res) => {
 
     return res.status(201).send(newUser)
 });
-
-app.get('/api/users/:id', (req, res) => {
-    console.log(req.params);
-    const parsedId = parseInt(req.params.id);
-    console.log(parsedId);
-    if(isNaN(parsedId))
-        return res.status(400).send({msg: "Bad Request. Invalid Id."});
-
-    const findUser = users.find((user) => user.id === parsedId);
-    if(!findUser) 
-        return res.status(404).send({msg: "User Not Found"});
-    
-    return res.send(findUser);
-});
-
 
 app.get('/api/items', (req, res) => {
     console.log(req.query);
@@ -76,6 +75,20 @@ app.get('/api/items', (req, res) => {
     return res.send(items);
 });
 
+app.get('/api/items/:id', (req, res) => {
+    console.log(req.params);
+    const parsedId = parseInt(req.params.id);
+    console.log(parsedId);
+    if(isNaN(parsedId))
+        return res.status(400).send({msg: "Bad Request. Invalid Id."});
+    
+    const findItem = items.find((items) => items.id === parsedId);
+    if(!findItem) 
+        return res.status(404).send({msg: "Item Not Found"});
+    
+    return res.send(findItem);
+});
+
 app.post('/api/items', (req, res) => {
     console.log(req.body);
     const { body } = req;
@@ -83,18 +96,4 @@ app.post('/api/items', (req, res) => {
     items.push(newItem);
 
     return res.status(201).send(newItem)
-});
-
-app.get('/api/items/:id', (req, res) => {
-    console.log(req.params);
-    const parsedId = parseInt(req.params.id);
-    console.log(parsedId);
-    if(isNaN(parsedId))
-        return res.status(400).send({msg: "Bad Request. Invalid Id."});
-
-    const findItem = items.find((items) => items.id === parsedId);
-    if(!findItem) 
-        return res.status(404).send({msg: "Item Not Found"});
-    
-    return res.send(findItem);
 });
