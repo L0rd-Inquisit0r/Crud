@@ -63,6 +63,25 @@ app.post('/api/users', (req, res) => {
     return res.status(201).send(newUser)
 });
 
+app.put('/api/users/:id', (req, res) => {
+    const { 
+        body, 
+        params: { id },
+    } = req;
+
+    const parsedId = parseInt(id);
+    if(isNaN(parsedId)) 
+        return res.sendStatus(400);
+    const findIndex = users.findIndex(
+        (user) => user.id === parsedId
+    );
+    if(findIndex === -1) 
+        return res.sendStatus(404);
+    users[findIndex] = { id: parsedId, ...body };
+
+    return res.sendStatus(200);
+});
+
 app.get('/api/items', (req, res) => {
     console.log(req.query);
     const {
