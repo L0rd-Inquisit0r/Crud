@@ -3,9 +3,9 @@ import express from 'express';
 const app = express();
 
 app.use(express.json());
-
 const PORT = process.env.PORT || 3000;
 
+// mock list of users
 const users = [
     {id: 1, username: "johndoe", displayName: "John"},
     {id: 2, username: "janedoe", displayName: "Jane"},
@@ -13,21 +13,25 @@ const users = [
     {id: 4, username: "bobby", displayName: "Bob"},
 ];
 
+// mock list of items
 const items = [
-    {id: 1, name: "milk", quantity: "2", unit_price: "40.00"},
-    {id: 2, name: "bread", quantity: "1", unit_price: "30.00"},
-    {id: 3, name: "eggs", quantity: "2", unit_price: "50.00"},
-    {id: 4, name: "apples", quantity: "4", unit_price: "20.00"},
+    {id: 1, item_name: "milk", quantity: "2", price: "40.00"},
+    {id: 2, item_name: "bread", quantity: "1", price: "30.00"},
+    {id: 3, item_name: "eggs", quantity: "2", price: "50.00"},
+    {id: 4, item_name: "apples", quantity: "4", price: "20.00"},
 ];
 
 app.listen(PORT, () => {
     console.log(`Running on Port ${PORT}`);
 });
 
+// landing message
 app.get("/", (req, res) => {
     res.status(201).send({msg: "Welcome to my portfolio!"});
 });
 
+// USERS
+// GET request
 app.get('/api/users', (req, res) => {
     console.log(req.query);
     const {
@@ -40,6 +44,7 @@ app.get('/api/users', (req, res) => {
     return res.send(users);
 });
 
+// GET request + route param
 app.get('/api/users/:id', (req, res) => {
     console.log(req.params);
     const parsedId = parseInt(req.params.id);
@@ -54,6 +59,7 @@ app.get('/api/users/:id', (req, res) => {
     return res.send(findUser);
 });
 
+// POST request
 app.post('/api/users', (req, res) => {
     console.log(req.body);
     const { body } = req;
@@ -63,6 +69,7 @@ app.post('/api/users', (req, res) => {
     return res.status(201).send(newUser)
 });
 
+// PUT request
 app.put('/api/users/:id', (req, res) => {
     const { 
         body, 
@@ -82,6 +89,8 @@ app.put('/api/users/:id', (req, res) => {
     return res.sendStatus(200);
 });
 
+// ITEMS
+// GET request
 app.get('/api/items', (req, res) => {
     console.log(req.query);
     const {
@@ -94,6 +103,7 @@ app.get('/api/items', (req, res) => {
     return res.send(items);
 });
 
+// GET request + route param
 app.get('/api/items/:id', (req, res) => {
     console.log(req.params);
     const parsedId = parseInt(req.params.id);
@@ -108,6 +118,7 @@ app.get('/api/items/:id', (req, res) => {
     return res.send(findItem);
 });
 
+// POST request
 app.post('/api/items', (req, res) => {
     console.log(req.body);
     const { body } = req;
@@ -117,6 +128,7 @@ app.post('/api/items', (req, res) => {
     return res.status(201).send(newItem)
 });
 
+// PUT request
 app.put('/api/items/:id', (req, res) => {
     const { 
         body, 
