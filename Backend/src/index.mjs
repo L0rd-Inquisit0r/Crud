@@ -116,3 +116,22 @@ app.post('/api/items', (req, res) => {
 
     return res.status(201).send(newItem)
 });
+
+app.put('/api/items/:id', (req, res) => {
+    const { 
+        body, 
+        params: { id },
+    } = req;
+
+    const parsedId = parseInt(id);
+    if(isNaN(parsedId)) 
+        return res.sendStatus(400);
+    const findIndex = items.findIndex(
+        (item) => item.id === parsedId
+    );
+    if(findIndex === -1) 
+        return res.sendStatus(404);
+    items[findIndex] = { id: parsedId, ...body };
+
+    return res.sendStatus(200);
+});
