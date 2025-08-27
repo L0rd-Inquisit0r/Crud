@@ -14,9 +14,9 @@ const users = [
 ];
 
 const items = [
-    {id: 1, name: "litre-of-milk", quantity: "2", unit_price: "40.00"},
-    {id: 2, name: "loaf-of-bread", quantity: "1", unit_price: "30.00"},
-    {id: 3, name: "carton-of-eggs", quantity: "2", unit_price: "50.00"},
+    {id: 1, name: "milk", quantity: "2", unit_price: "40.00"},
+    {id: 2, name: "bread", quantity: "1", unit_price: "30.00"},
+    {id: 3, name: "eggs", quantity: "2", unit_price: "50.00"},
     {id: 4, name: "apples", quantity: "4", unit_price: "20.00"},
 ];
 
