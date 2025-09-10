@@ -165,3 +165,23 @@ app.put('/api/items/:id', (req, res) => {
 
     return res.sendStatus(200);
 });
+
+// PATCH request
+app.patch('/api/items/:id', (req, res) => {
+    const { 
+        body, 
+        params: { id },
+    } = req;
+
+    const parsedId = parseInt(id);
+    if(isNaN(parsedId)) 
+        return res.sendStatus(400);
+    const findIndex = items.findIndex(
+        (item) => item.id === parsedId
+    );
+    if(findIndex === -1) 
+        return res.sendStatus(404);
+    items[findIndex] = { ...items[findIndex], ...body };
+
+    return res.sendStatus(200);
+})
