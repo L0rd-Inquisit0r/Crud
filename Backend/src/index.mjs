@@ -105,7 +105,25 @@ app.patch('/api/users/:id', (req, res) => {
     if(findIndex === -1) 
         return res.sendStatus(404);
     users[findIndex] = { ...users[findIndex], ...body };
-})
+});
+
+// DELETE request
+app.delete("/api/users/:id", (req, res) => {
+    const {
+        params: { id },
+    } = req
+
+    const parsedId = parseInt(id);
+    if(isNaN(parsedId)) 
+        return res.sendStatus(400);
+    const findIndex = users.findIndex(
+        (user) => user.id === parsedId
+    );
+    if(findIndex === -1)
+        return res.sendStatus(404);
+    users.splice(findIndex, 1);
+    return res.sendStatus(200);
+});
 
 // ITEMS
 // GET request
