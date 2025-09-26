@@ -202,4 +202,22 @@ app.patch('/api/items/:id', (req, res) => {
     items[findIndex] = { ...items[findIndex], ...body };
 
     return res.sendStatus(200);
-})
+});
+
+// DELETE request
+app.delete("/api/items/:id", (req, res) => {
+    const {
+        params: { id },
+    } = req
+
+    const parsedId = parseInt(id);
+    if(isNaN(parsedId)) 
+        return res.sendStatus(400);
+    const findIndex = items.findIndex(
+        (item) => items.id === parsedId
+    );
+    if(findIndex === -1)
+        return res.sendStatus(404);
+    items.splice(findIndex, 1);
+    return res.sendStatus(200);
+});
