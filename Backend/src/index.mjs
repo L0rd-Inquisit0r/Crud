@@ -5,6 +5,13 @@ const app = express();
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
+const loggingMiddleware = (req, res, next) => {
+    console.log(`${req.method} - ${req.url}`);
+    next();
+};
+
+app.use(loggingMiddleware);
+
 // mock list of users
 const users = [
     { id: 1, username: "johndoe", first_name: "John", last_name: "Doe", password: "johndoe" },
