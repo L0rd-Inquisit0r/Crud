@@ -10,7 +10,25 @@ const loggingMiddleware = (req, res, next) => {
     next();
 };
 
+const resolveIndexUserId = (req, res, next) => {
+    const { 
+        params: { id },
+    } = req;
+
+    const parsedId = parseInt(id);
+    if(isNaN(parsedId)) 
+        return res.sendStatus(400);
+    const findIndex = users.findIndex(
+        (user) => user.id === parsedId
+    );
+    if(findIndex === -1) 
+        return res.sendStatus(404);
+    req.findIndex = findIndex;
+    next();
+};
+
 app.use(loggingMiddleware);
+app.use(resolveIndexUserId);
 
 // mock list of users
 const users = [
