@@ -7,10 +7,16 @@ const PORT = process.env.PORT || 3000;
 
 // mock list of users
 const users = [
-    {id: 1, username: "johndoe", displayName: "John"},
-    {id: 2, username: "janedoe", displayName: "Jane"},
-    {id: 3, username: "alice", displayName: "Alice"},
-    {id: 4, username: "bobby", displayName: "Bob"},
+    { id: 1, username: "johndoe", first_name: "John", last_name: "Doe", password: "johndoe" },
+    { id: 2, username: "janesmith", first_name: "Jane", last_name: "Smith", password: "secure123" },
+    { id: 3, username: "mariaramos", first_name: "Maria", last_name: "Ramos", password: "password" },
+    { id: 4, username: "alexchan", first_name: "Alex", last_name: "Chan", password: "alex1234" },
+    { id: 5, username: "pedrobautista", first_name: "Pedro", last_name: "Bautista", password: "p@ssw0rd" },
+    { id: 6, username: "emilynguyen", first_name: "Emily", last_name: "Nguyen", password: "emilyrocks" },
+    { id: 7, username: "kyleperez", first_name: "Kyle", last_name: "Perez", password: "mypassword" },
+    { id: 8, username: "sofiahernandez", first_name: "Sofia", last_name: "Hernandez", password: "sofia321" },
+    { id: 9, username: "davidlee", first_name: "David", last_name: "Lee", password: "lee_david" },
+    { id: 10, username: "lucygarcia", first_name: "Lucy", last_name: "Garcia", password: "lucyPass1" }
 ];
 
 app.listen(PORT, () => {
