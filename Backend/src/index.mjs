@@ -27,7 +27,7 @@ app.listen(PORT, () => {
 
 // landing message
 app.get("/", (req, res) => {
-    res.status(201).send({msg: "Welcome to my portfolio!"});
+    res.status(201).send({msg: "Welcome to my basic crud API!"});
 });
 
 // USERS
