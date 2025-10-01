@@ -1,5 +1,5 @@
 import styles from './Card.module.css'
-import image from '../../assets/react.svg'
+import image from '/vite.svg'
 
 function Card()
 {
