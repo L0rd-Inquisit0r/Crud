@@ -1,12 +1,16 @@
-import Header from "./components/Header/Header"
-import Footer from "./components/Footer/Footer"
+import Header from "./sections/Header/Header"
+import Footer from "./sections/Footer/Footer"
+import Body from "./sections/Body/Body";
 
 function App() {
 
     return(
         <>
-        <Header/>
-        <Footer/>
+        <div id="flex-container">
+            <Header/>
+            <Body/>
+            <Footer/>
+        </div>
         </>
     );
 }
