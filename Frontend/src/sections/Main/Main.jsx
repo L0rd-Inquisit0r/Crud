@@ -4,7 +4,7 @@ import Card from '../../components/Card/Card'
 function Main(){
 
     return(
-        <main style={styles.main}>
+        <main className={styles.main}>
             <Card/>
         </main>
     );

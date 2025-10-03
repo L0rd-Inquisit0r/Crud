@@ -4,7 +4,7 @@ function Sidebar(){
 
     return(
         <>
-        <aside styles={styles.side}>
+        <aside className={styles.side}>
             <p>Lorem</p>
         </aside>
         </>
