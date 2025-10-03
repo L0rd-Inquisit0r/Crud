@@ -1,4 +1,4 @@
-import styles from './Card.module.css'
+import styles from '../styles/styles.module.css'
 import image from '/vite.svg'
 
 function Card()

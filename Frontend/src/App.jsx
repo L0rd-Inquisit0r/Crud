@@ -1,8 +1,8 @@
-import Header from "./sections/Header/Header"
-import Footer from "./sections/Footer/Footer"
-import Main from "./sections/Main/Main";
-import Nav from "./sections/Nav/Nav";
-import Sidebar from "./sections/Side/Side";
+import Header from "./sections/Header"
+import Footer from "./sections/Footer"
+import Main from "./sections/Main";
+import Nav from "./sections/Nav";
+import Sidebar from "./sections/Side";
 
 function App() {
 

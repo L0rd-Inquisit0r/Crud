@@ -1,5 +1,5 @@
-import styles from './Header.module.css'
-import icon from '../../assets/react.svg'
+import styles from '../styles/styles.module.css'
+import icon from '../assets/react.svg'
 
 function Header(){
 

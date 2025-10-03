@@ -1,5 +1,5 @@
-import styles from './Main.module.css'
-import Card from '../../components/Card/Card'
+import styles from '../styles/styles.module.css'
+import Card from '../components/Card'
 
 function Main(){
 
