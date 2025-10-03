@@ -4,11 +4,9 @@ import Card from '../../components/Card/Card'
 function Main(){
 
     return(
-        <>
         <main style={styles.main}>
             <Card/>
         </main>
-        </>
     );
 }
 

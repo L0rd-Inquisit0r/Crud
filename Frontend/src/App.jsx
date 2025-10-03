@@ -8,13 +8,13 @@ function App() {
 
     return(
         <>
-        <div id="flex-container">
-            <Header/>
+        <Header/>
+        <div className="mainBody">
             <Nav/>
             <Main/>
             <Sidebar/>
-            <Footer/>
         </div>
+        <Footer/>
         </>
     );
 }

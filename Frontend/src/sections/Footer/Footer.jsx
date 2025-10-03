@@ -1,9 +1,9 @@
+import styles from "./Footer.module.css"
 
 function Footer() {
 
     return(
-        <footer>
-            <hr/>
+        <footer className={styles.footer}>
             <p>crud</p>
         </footer>
     );

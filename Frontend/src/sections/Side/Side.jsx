@@ -1,8 +1,10 @@
+import styles from "./Side.module.css"
+
 function Sidebar(){
 
     return(
         <>
-        <aside>
+        <aside styles={styles.side}>
             <p>Lorem</p>
         </aside>
         </>
