@@ -1,6 +1,8 @@
 import Header from "./sections/Header/Header"
 import Footer from "./sections/Footer/Footer"
-import Body from "./sections/Body/Body";
+import Main from "./sections/Main/Main";
+import Nav from "./sections/Nav/Nav";
+import Sidebar from "./sections/Side/Side";
 
 function App() {
 
@@ -8,7 +10,9 @@ function App() {
         <>
         <div id="flex-container">
             <Header/>
-            <Body/>
+            <Nav/>
+            <Main/>
+            <Sidebar/>
             <Footer/>
         </div>
         </>
